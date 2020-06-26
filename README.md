@@ -1,5 +1,5 @@
 # OpenCV Preprocessor
-Preprocessor for shark detection ML algorithm that eliminates flase positives from Aerial drone based shark footage at the shores.
+Preprocessor for shark detection ML algorithm that eliminates false positives from Aerial drone based shark footage at the shores.
 
 Tested and designed for a diverse set of drone based shark footage collected by our sponsers. 
 Object recognition algorithms could not be used due to the wide field of view. The individual objects are low resolution and have little color gradient as submerged objects take the color of the ocean.
