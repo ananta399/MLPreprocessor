@@ -2,7 +2,7 @@
 Preprocessor for shark detection ML algorithm that eliminates flase positives from Aerial drone based shark footage at the shores.
 
 Tested and designed for a diverse set of drone based shark footage collected by our sponsers. 
-Object recognition algorithms cannot be used due to the wide field of view. The individual objects are low resolution and have little color gradient as submerged objects take the color of the ocean.
+Object recognition algorithms could not be used due to the wide field of view. The individual objects are low resolution and have little color gradient as submerged objects take the color of the ocean.
 
 ## Approach
 
@@ -40,8 +40,8 @@ However, this is much noise free than the original image.
 
 
 
-# Results on a Matlab Object Tracker
-We evaluated the results on a Matlab object traker just to evaluate the preprocessor. The tracker parameters were changed for the purposes of the evaluation. One change was to only track objects with duration greater than a second to remove random noise. The other change was to specify bounding box sizes so only shark-sized objects would be tracked.
+## Results on a Matlab Object Tracker
+We evaluated the results on a Matlab object traker just to evaluate the preprocessor. The tracker parameters were changed to only track objects with duration greater than a second to remove random noise.
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/tracker1.png)
 
@@ -53,5 +53,5 @@ We tested our algorithm against 50 selected videos from the video database. To e
 
 Algaes, Seals and other fish were most common false positives. This distinction is left out for other steps in the classification process. Deeply submerged sharks were most common false negatives.
 
-# CONCLUSION
+## CONCLUSION
 The image preprocessor, while needs to be improved, is a good proof-of-concept and can be used (with modifications) to remove false positives from object tracking algorithms or machine learning algorithms. The algorithm, although better under ideal conditions, was able to preprocess videos under different weather conditions, videos with wide field of view and therefore low resolution of objects, and submerged/hazy sharks to qualify for a proof-of-conecpt.
