@@ -1,7 +1,10 @@
-# MLPreprocessor
-Preprocessor for shark detection ML algorithm that eliminates flase positives from Aerial drone based shark footage at the shores of Cape Cod
+# OpenCV Preprocessor
+Preprocessor for shark detection ML algorithm that eliminates flase positives from Aerial drone based shark footage at the shores.
 
-Tested and designed for Cape Cod diverse set of drone based shark footage collected by our sponsers. Object recognition algorithms cannot be used due to the wide field of view, the individual objects are low resolution and very little color gradient as submerged objects take the color of the ocean.
+Tested and designed for a diverse set of drone based shark footage collected by our sponsers. 
+Object recognition algorithms cannot be used due to the wide field of view. The individual objects are low resolution and have little color gradient as submerged objects take the color of the ocean.
+
+## Approach
 
 Discontinued approach: Try to Isolate Sharks before feeding to machine learning
 
@@ -27,7 +30,7 @@ Furthermore, linear combinations of colorspaces were obtained experimentally to 
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/mask.png)
 
-Image below has a shark in the center.
+The above example image has a shark in the center, a bird in the top right corner, waves, shore, glare, and a boat. The final output image is given below.
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/out.PNG)
 
