@@ -1,11 +1,14 @@
 # MLPreprocessor
 Preprocessor for shark detection Ll algorithm that eliminates flase positives from Aerial drone based shark footage at the shores of Cape Cod
 
+Tested and designed for Cape Cod diverse set of drone based shark footage collected by our sponsers.
+
 Discontinued approach: Try to Isolate Sharks before feeding to machine learning
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/original.PNG)
 
 Problems with the approach:
+(The above result looks great, but is not representative of the dataset)
 Due to wide field of view and low gradient of color between submerged sharks and background, very difficult to achieve.
 
 Actual approach:
@@ -26,3 +29,25 @@ Furthermore, linear combinations of colorspaces were obtained experimentally to 
 
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/out.PNG)
+
+As we can see in the above image, the background, glare, noise, etc are removed. So is the bird.
+The shark remains but so does the boat shadow. This is because both submerged sharks and shadows are similar and is not differentiated by the preprocessor alone.
+However, this is much noise free than the original image.
+
+
+
+# Results on a Matlab Object Tracker
+We evaluated the results on a Matlab object traker just to evaluate the preprocessor. The tracker parameters were changed for the purposes of the evaluation. One change was to only track objects with duration greater than a second to remove random noise. The other change was to specify bounding box sizes so only shark-sized objects would be tracked.
+
+![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/tracker.png)
+
+As we can see, from the middle and bottom images, the tracker tracks only the shark in the preprocessed image while the unprocessed image has a lot of noise.
+
+We tested our algorithm against 50 selected videos from the video database. To effectively test the success and adaptability of our algorithm, videos in different weather, tidal and other ocean conditions as well as videos containing different objects were selected, including a few videos of vacant oceans. Clips where the camera was stationary were extracted from the videos to accommodate our motion based object tracker, as it is a requirement for our approach. Ideal videos refer to scenarios where the shark is obviously spotted by eye, which translates to minimal glare and the shark not being too deep. Otherwise the video is marked as non-ideal.
+
+![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/tables.PNG)
+
+This distinction is left out for other steps in the classification process. 
+
+# CONCLUSION
+The image preprocessor, while needs to be improved, is a good proof-of-concept and can be used (with modifications) to remove false positives from object tracking algorithms or machine learning algorithms. This distinction is left out for other steps in the classification process.
