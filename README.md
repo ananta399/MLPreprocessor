@@ -23,7 +23,7 @@ We analyzed different color spaces for images in different conditions (having sh
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/colorspaces.PNG)
 
-Image is processed under different colorspaces and masked. After evrey processing, image was gradually blurred using the mask to make it blend with the background. Only false positives were blurred, sharks were not, maintaining the quality of the image in the region of interest.
+Image is processed under different colorspaces and masked. After every individual colorspace processing, image was gradually blurred using the mask to make it blend with the background. Only false positives were blurred, sharks were not, maintaining the quality of the image in the region of interest.
 
 Furthermore, linear combinations of colorspaces were obtained experimentally to produce a noise free image.
 
