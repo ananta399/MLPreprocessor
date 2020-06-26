@@ -2,23 +2,25 @@
 Preprocessor for shark detection ML algorithm that eliminates false positives from Aerial drone based shark footage at the shores. The ML algorithm is not included however, it can be assumed to analyze movement patterns.
 
 Tested and designed for a diverse set of drone based shark footage collected by our sponsers. 
-Object recognition algorithms could not be used due to the wide field of view. The individual objects are low resolution and have little color gradient as submerged objects take the color of the ocean.
+Object recognition algorithms could not be used due to the wide field of view. The individual objects are low resolution and have little color gradient as submerged objects take the color of the ocean. The sharks lost all the defining features.
 
 ## Approach
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/original.PNG)
 
-Identify common false positives that can confuse ML and try to eliminate them.
+Object tracker tracks all objects. A ocean is very dynamic and has a lot of "objects". So, we needed to identify common false positives and try to eliminate them.
 Common flase positives: Boats, Seals,Algae, Birds, Waves, Glare, Fish, Noise
 
+
+Most of the time was spent experimenting rather than coding.
+
 Major hurdles:
-*Low resolution of sharks given the wide field of view of the camera. For standard height of the drone, the area of a shark in our images was only around 15x5 pixels. Sharks further lost clarity when submerged.
 
-*Sophisticated human visual processing. As you can see in the above image, our brain “tricks” us into believing the shark is black, however, isolating the shark reveals that it is actually still green. So, our images actually have low color gradient. A submerged shark may look black to the eye however, in an image, it takes the color of whatever water it is in. Water color depends on weather and other conditions.
+* Low resolution of sharks given the wide field of view of the camera. For standard height of the drone, the area of a shark in our images was only around 15x5 pixels. Sharks further lost clarity when submerged. Sharks looked like black blobs in the ocean and black blobs looked like sharks.
 
-Most of the time was spent experimenting rather than coding. Due to high altitude of the drones, the sharks were just tiny low resolution hazy blobs with no defining features. Furthermore, as they were submerged, they had no distinct color and just took the color of the ocean with little color gradient. The color of the ocean also changed with different weather and lighting conditions. 
+* Sophisticated human visual processing. As you can see in the above image, our brain “tricks” us into believing the shark is black, however, isolating the shark reveals that it is actually still green. So, our images actually have low color gradient. A submerged shark may look black to the eye however, in an image, it takes the color of whatever water it is in. Water color depends on weather and other conditions.
 
-We analyzed different color spaces for images in different conditions (having sharks, land, glare, boats, seals, different weather conditions etc). Analysis of the different color channels led us to realize that some features (such as waves) were greatly removed in some color spaces while some features (such as glare) were highly noticeable in some color spaces. This lead us to switch from the approach of trying to isolate the shark to trying to remove common hurdles that are not sharks.
+We analyzed different color spaces for images in different conditions (having sharks, land, glare, boats, seals, different weather conditions etc). Analysis of the different color channels led us to realize that some features (such as waves) were greatly removed in some color spaces while some features (such as glare) were highly noticeable in some color spaces.
 
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/colorspaces.PNG)
