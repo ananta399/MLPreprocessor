@@ -23,12 +23,14 @@ We analyzed different color spaces for images in different conditions (having sh
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/colorspaces.PNG)
 
-Image is processed under different colorspaces and masked. After every individual colorspace processing, image was gradually blurred using the mask to make it blend with the background. Only false positives were blurred, sharks were not, maintaining the quality of the image in the region of interest.
+Note that the image above is just an example of the concept and not necessarily the algorithm.
+
+Image is processed under different colorspaces and masked using thresholding. After every individual colorspace processing, image was gradually blurred using the mask to make it blend with the background. Only false positives were blurred, sharks were not, maintaining the quality of the image in the region of interest.
 
 Furthermore, linear combinations of colorspaces were obtained experimentally to produce a noise free image.
 
 
-![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/mask.png)
+![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/mask1.png)
 
 The above example image has a shark in the center, a bird in the top right corner, waves, shore, glare, and a boat. The final output image is given below.
 
