@@ -43,7 +43,7 @@ However, this is much noise free than the original image.
 # Results on a Matlab Object Tracker
 We evaluated the results on a Matlab object traker just to evaluate the preprocessor. The tracker parameters were changed for the purposes of the evaluation. One change was to only track objects with duration greater than a second to remove random noise. The other change was to specify bounding box sizes so only shark-sized objects would be tracked.
 
-![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/tracker.png)
+![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/tracker1.png)
 
 As we can see, from the middle and bottom images, the tracker tracks only the shark in the preprocessed image while the unprocessed image has a lot of noise.
 
