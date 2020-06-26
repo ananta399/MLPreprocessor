@@ -42,7 +42,6 @@ def finalBlur(src, gray):
  saturationChannelHighThreshold = 255
  saturationChannelLowThreshold = 0
  radius = 500
-16
  currentImage = src
  hsv = cv2.cvtColor(currentImage, cv2.COLOR_BGR2HSV)
  color_mask = cv2.inRange(hsv, (0, saturationChannelLowThreshold, valueChannelLowThreshold),
@@ -88,21 +87,22 @@ end = int(end*fps)
 ##Current frame
 count = 0
 cap.set(1,start)
+
 # Read until video is completed
 while(cap.isOpened()):
  # Capture frame-by-frame
  ret, img = cap.read()
  if ret == True:
- count = count + 1
+   count = count + 1
  if (count > end - start):
- break
-17
+   break
  img = cv2.resize(img,(1024,768))
  originalImage = cv2.resize(img,(1024,768))
  img = removeObstacles(img)
  height, width, channels = img.shape
  upper_left = (int(width / 2) - 5, int(height / 2) - 2)
  bottom_right = (int(width / 2) + 2, int(height / 2) + 2)
+ 
  ##Convert to HSV and LAB color spaces
  lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
  hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -110,6 +110,7 @@ while(cap.isOpened()):
  l,a,b = cv2.split(lab);
  a_blur = finalBlur(img, a)
  cv2.imshow('Original',img)
+ 
  ##Perform linear operation on various channels, values and channels selected through experimentation
  vby4 = np.floor_divide(v,4)
  sub = np.subtract(a,vby4)
@@ -117,16 +118,19 @@ while(cap.isOpened()):
  sub_blur_a_modified = bright(sub) ##Increase the contrast of the output frame
  sub_blur_a = finalBlur(img, sub_blur_a_modified) ##Increasing Contrast increases noise so get rid of them
  cv2.imshow('sub a mod',sub_blur_a_modified)
+ 
  ###Write output video and original video to file
  outfile3 = cv2.cvtColor(sub_blur_a_modified, cv2.COLOR_GRAY2RGB)
  out3.write(outfile3)
  out4.write(originalImage)
  # Press Q on keyboard to exit
  if cv2.waitKey(1) & 0xFF == ord('q'):
- break
+   break
  # Break the loop
  else:
- break
+   break
+   
+   
 # When everything done, release the video capture object
 cap.release()
 out3.release()
