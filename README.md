@@ -7,6 +7,7 @@ Object recognition algorithms could not be used due to the wide field of view. T
 ## Approach
 
 ![alt text](https://github.com/ananta399/MLPreprocessor/blob/master/readmeImages/original.PNG)
+
 (Note, the above image is not representative of the output or the approcah. It just is there to clarify the hurdles) 
 
 Object tracker tracks all objects. A ocean is very dynamic and has a lot of "objects". So, we needed to identify common false positives and try to eliminate them.
